@@ -1,6 +1,10 @@
-import { Download } from "lucide-react";
+"use client";
+import ApkDownloadMenu from "@/components/ApkDownloadMenu";
+import { useRecommendedApk } from "@/lib/use-recommended-apk";
 
 export default function DownloadCta() {
+  const { recommended } = useRecommendedApk();
+
   return (
     <section id="download" className="py-24 lg:py-32 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-t from-accent/5 via-transparent to-transparent" />
@@ -17,13 +21,7 @@ export default function DownloadCta() {
           </p>
         </div>
 
-        <a
-          href="#"
-          className="inline-flex items-center gap-3 bg-accent text-background font-semibold px-10 py-4 rounded-xl hover:bg-accent-dark transition-all hover:scale-105 active:scale-95 shadow-lg shadow-accent/25"
-        >
-          <Download className="w-6 h-6" />
-          Download Here
-        </a>
+        <ApkDownloadMenu recommended={recommended} className="mx-auto" />
 
       </div>
     </section>

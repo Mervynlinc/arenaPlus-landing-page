@@ -3,19 +3,28 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Threads from "@/components/Threads";
+import ApkDownloadMenu from "@/components/ApkDownloadMenu";
+import { useRecommendedApk } from "@/lib/use-recommended-apk";
+import { usePrefersReducedMotion } from "@/lib/use-prefers-reduced-motion";
 
 
 const words = ["Match", "Race", "Touchdown"];
 
 function RotatingWord() {
   const [index, setIndex] = useState(0);
+  const reducedMotion = usePrefersReducedMotion();
 
   useEffect(() => {
+    if (reducedMotion) return;
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % words.length);
     }, 3000);
     return () => clearInterval(interval);
-  }, []);
+  }, [reducedMotion]);
+
+  if (reducedMotion) {
+    return <span className="inline-block text-accent">{words[0]}</span>;
+  }
 
   return (
     <span className="relative inline-block min-w-[3ch]">
@@ -36,6 +45,9 @@ function RotatingWord() {
 }
 
 export default function Hero() {
+  const { recommended } = useRecommendedApk();
+  const reducedMotion = usePrefersReducedMotion();
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-[#0f0f14]" />
@@ -44,7 +56,7 @@ export default function Hero() {
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-20" />
 
       <div className="absolute inset-0 z-0 opacity-30">
-        <Threads color={[0.81, 1, 0.24]} amplitude={1.5} distance={0.6} />
+        {reducedMotion ? null : <Threads color={[0.81, 1, 0.24]} amplitude={1.5} distance={0.6} />}
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
@@ -73,13 +85,7 @@ export default function Hero() {
             </p>
 
             <div className="flex flex-wrap gap-4 animate-fade-in-up-delay-1">
-              <a
-                href="#"
-                className="inline-flex items-center gap-2 bg-accent text-background font-semibold px-6 py-3.5 rounded-xl hover:bg-accent-dark transition-all hover:scale-105 active:scale-95 shadow-lg shadow-accent/25"
-              >
-                <Image src="/assets/android.png" alt="Android" width={20} height={20} className="object-contain" />
-                Download for Free
-              </a>
+              <ApkDownloadMenu recommended={recommended} variant="grid" />
             </div>
 
 

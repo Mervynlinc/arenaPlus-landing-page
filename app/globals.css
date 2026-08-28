@@ -92,6 +92,21 @@ body {
   opacity: 0;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .animate-scroll-vertical {
+    animation: none;
+    transform: none;
+  }
+
+  .animate-fade-in-up,
+  .animate-fade-in-up-delay-1,
+  .animate-fade-in-up-delay-3 {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
 :root {
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
