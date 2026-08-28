@@ -59,16 +59,16 @@ export default function Hero() {
         {reducedMotion ? null : <Threads color={[0.81, 1, 0.24]} amplitude={1.5} distance={0.6} />}
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-4 items-center py-20">
-          <div className="space-y-8 animate-fade-in-up">
+      <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 w-full">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-4 items-center py-16 sm:py-20">
+          <div className="space-y-6 sm:space-y-8 animate-fade-in-up">
             <div className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-1.5 rounded-full text-sm font-medium border border-accent/20">
               <span className="w-2 h-2 rounded-full bg-live animate-pulse" />
               Live Sports Streaming
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold leading-[1.1] tracking-tight">
-              <span className="whitespace-nowrap">
+              <span className="sm:whitespace-nowrap">
                 Every{" "}
                 <span className="inline-flex">
                   <RotatingWord />
@@ -76,7 +76,7 @@ export default function Hero() {
                 .
               </span>
               <br />
-              <span className="text-white whitespace-nowrap">One Tap Away.</span>
+              <span className="text-white sm:whitespace-nowrap">One Tap Away.</span>
             </h1>
 
             <p className="text-base sm:text-lg text-muted-light max-w-lg leading-relaxed">
@@ -84,8 +84,8 @@ export default function Hero() {
               tennis and more — then jump straight into the broadcast.
             </p>
 
-            <div className="flex flex-wrap gap-4 animate-fade-in-up-delay-1">
-              <ApkDownloadMenu recommended={recommended} variant="grid" />
+            <div className="flex flex-wrap gap-4 animate-fade-in-up-delay-1 w-full">
+              <ApkDownloadMenu recommended={recommended} variant="grid" compact />
             </div>
 
 
@@ -102,7 +102,7 @@ export default function Hero() {
                   alt="Arena Plus app interface"
                   width={400}
                   height={800}
-                  className="w-[260px] sm:w-[300px] lg:w-[370px] h-auto rounded-[30px]"
+                  className="w-[220px] sm:w-[300px] lg:w-[370px] h-auto rounded-[30px]"
                   priority
                   quality={100}
                 />

@@ -26,10 +26,10 @@ export default function SportsGrid() {
 
       <div className="relative z-10 -mt-screen">
         <div className="max-w-7xl mx-auto px-6 pt-[100vh] pb-24 lg:pb-32">
-          <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <div className="flex justify-center md:justify-start">
+          <div className="grid md:grid-cols-2 gap-10 lg:gap-20 items-center">
+            <div className="flex justify-center md:justify-start order-2 md:order-1">
               <div
-                className="relative w-full max-w-md h-[500px] overflow-hidden"
+                className="relative w-full max-w-md h-[300px] sm:h-[500px] overflow-hidden"
                 style={{
                   maskImage: "linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)",
                   WebkitMaskImage: "linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)",
@@ -39,7 +39,7 @@ export default function SportsGrid() {
                   {[...sports, ...sports, ...sports].map((sport, i) => (
                     <div
                       key={`${sport}-${i}`}
-                      className="text-center text-3xl sm:text-4xl lg:text-5xl font-black italic text-white/90 hover:text-accent transition-colors py-3 tracking-tight"
+                      className="text-center text-2xl sm:text-4xl lg:text-5xl font-black italic text-white/90 hover:text-accent transition-colors py-3 tracking-tight"
                       style={{ fontFamily: "'Inter', sans-serif" }}
                     >
                       {sport}
@@ -49,7 +49,7 @@ export default function SportsGrid() {
               </div>
             </div>
 
-            <div className="space-y-4 text-center md:text-left">
+            <div className="space-y-4 text-center md:text-left order-1 md:order-2">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
                 <span className="text-accent">15+ Sports</span>, One App
               </h2>
