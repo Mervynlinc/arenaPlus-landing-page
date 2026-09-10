@@ -49,25 +49,21 @@ export default function Hero() {
   const reducedMotion = usePrefersReducedMotion();
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-[#0f0f14]" />
+    <section className="relative min-h-svh lg:min-h-screen flex items-start lg:items-center overflow-hidden">
+      <div className="absolute inset-0 " />
       <div className="absolute top-1/2 left-1/4 w-[600px] h-[600px] bg-accent/5 rounded-full blur-3xl" />
       <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-live/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-20" />
+      <div className="absolute bottom-0 left-0 right-0 h-32" />
 
       <div className="absolute inset-0 z-0 opacity-30">
         {reducedMotion ? null : <Threads color={[0.81, 1, 0.24]} amplitude={1.5} distance={0.6} />}
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 w-full">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-4 items-center py-16 sm:py-20">
-          <div className="space-y-6 sm:space-y-8 animate-fade-in-up">
-            <div className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-1.5 rounded-full text-sm font-medium border border-accent/20">
-              <span className="w-2 h-2 rounded-full bg-live animate-pulse" />
-              Live Sports Streaming
-            </div>
+      <div className="relative z-10 max-w-7xl mx-auto pl-8 sm:pl-12 lg:pl-16 pr-5 sm:pr-6 w-full pt-[max(env(safe-area-inset-top),1.25rem)] lg:pt-0">
+        <div className="grid lg:grid-cols-[1fr_auto] gap-6 lg:gap-8 items-center py-8 sm:py-10">
+          <div className="order-2 lg:order-1 space-y-4 sm:space-y-5 animate-fade-in-up">
 
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold leading-[1.1] tracking-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold leading-[1.05] tracking-tight">
               <span className="sm:whitespace-nowrap">
                 Every{" "}
                 <span className="inline-flex">
@@ -84,6 +80,16 @@ export default function Hero() {
               tennis and more — then jump straight into the broadcast.
             </p>
 
+            <p className="text-sm sm:text-base flex items-center gap-2 text-white">
+              <svg className="w-4 h-4 shrink-0 text-accent" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
+              </svg>
+              <a href="https://t.me/+_hm_xER6r00zZTc0" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">
+                Join our Telegram community
+              </a>
+              <span className="text-muted-light">for any help, inquiries and updates.</span>
+            </p>
+
             <div className="flex flex-wrap gap-4 animate-fade-in-up-delay-1 w-full">
               <ApkDownloadMenu recommended={recommended} variant="grid" compact />
             </div>
@@ -91,7 +97,7 @@ export default function Hero() {
 
           </div>
 
-          <div className="relative flex justify-center lg:-ml-16 animate-fade-in-up-delay-3">
+          <div className="order-1 lg:order-2 relative flex justify-center lg:justify-end animate-fade-in-up-delay-3">
             <div className="flex-shrink-0" style={{ perspective: "1200px" }}>
               <div
                 className="transition-transform duration-500 ease-out drop-shadow-2xl"
@@ -100,9 +106,9 @@ export default function Hero() {
                 <Image
                   src="/assets/portrait.png"
                   alt="Arena Plus app interface"
-                  width={400}
-                  height={800}
-                  className="w-[220px] sm:w-[300px] lg:w-[370px] h-auto rounded-[30px]"
+                  width={260}
+                  height={520}
+                  className="w-[180px] sm:w-[260px] lg:w-[310px] h-auto rounded-[26px]"
                   priority
                   quality={100}
                 />
