@@ -5,10 +5,10 @@ import { APK_VARIANTS, type ApkVariant } from "@/lib/apk-links";
 // Version names are the actual APK file names. Phone labels stay device-facing
 // (no "architecture" / "CPU" jargon).
 const VERSION_NAME: Record<ApkVariant, string> = {
-  arm64: "app-arm64-v8a-release.apk",
-  armeabi_v7a: "app-armeabi-v7a-release.apk",
-  x86: "app-x86-release.apk",
-  x86_64: "app-x86_64-release.apk",
+  arm64: "arm64-v8a",
+  armeabi_v7a: "armeabi-v7a",
+  x86: "x86",
+  x86_64: "x86_64",
 };
 
 const PHONE_COPY: Record<ApkVariant, string> = {
